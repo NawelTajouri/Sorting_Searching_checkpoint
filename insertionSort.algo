@@ -1,0 +1,40 @@
+PROCEDURE insertionSort(VAR arr: ARRAY_OF INTEGER, n: INTEGER)
+VAR
+    i, key, j : INTEGER;
+BEGIN
+    FOR i FROM 0 TO n DO  
+
+        key := arr[i];
+        j := i - 1;
+ 
+        WHILE (j >= 0 && arr[j] > key) DO 
+        
+            arr[j + 1] := arr[j];
+            j := j - 1;
+        END_WHILE
+
+        arr[j + 1] := key;
+    END_FOR
+END
+
+
+ALGORITHM INSERTION_SORT_tab
+
+VAR 
+tab : ARRAY_OF INTEGER;
+n : INTEGER;
+i: INTEGER; //counter
+
+BEGIN 
+
+tab := [4, 2, 5, 1, 13 ];
+n := tab.length;
+Read(n);
+
+insertionSort(tab, n);
+
+FOR i FROM 0 TO n DO 
+   WRITE (tab[i]) ;
+END_FOR
+
+END
